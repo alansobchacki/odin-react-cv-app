@@ -1,0 +1,24 @@
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#main-container {
+  display: grid;
+  grid-template: 1fr / 0.2fr 1fr;
+}
+
+#personal-info {
+  grid-column: 1 / 2;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#resume {
+  grid-column: 2 / 3;
+
+  display: flex;
+  flex-direction: column;
+}
