@@ -5,6 +5,8 @@ function PersonalInformation({
   setFullName,
   email,
   setEmail,
+  portfolio,
+  setPortfolio,
   phoneNumber,
   setPhoneNumber,
   address,
@@ -18,45 +20,74 @@ function PersonalInformation({
 
   return (
     <div className="">
-      <button onClick={toggleVisibility}>
-        {isVisible ? "General Information ^" : "General Information v"}
+      <button className="regular-button" onClick={toggleVisibility}>
+        General Information
       </button>
 
       {isVisible && (
         <div>
           <form>
-            <label>Full Name: </label>
-            <input
-              type="text"
-              placeholder="Your name."
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
-              maxLength={50}
-            />
+            <div className="form-row">
+              <label>
+                Full Name <span className="observation">required</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter your name"
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                maxLength={50}
+              />
+            </div>
 
-            <label>Email: </label>
-            <input
-              type="email"
-              placeholder="Your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+            <div className="form-row">
+              <label>
+                Email <span className="observation">required</span>
+              </label>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
 
-            <label>Phone Number: </label>
-            <input
-              type="tel"
-              placeholder="(123) 456-7890"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-            />
+            <div className="form-row">
+              <label>
+                Portfolio{" "}
+                <span className="observation">optional, recommended</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter your portfolio (github, linkedin...)"
+                value={portfolio}
+                onChange={(e) => setPortfolio(e.target.value)}
+              />
+            </div>
 
-            <label>Address: </label>
-            <input
-              type="text"
-              placeholder="San Diego, California"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-            />
+            <div className="form-row">
+              <label>
+                Phone Number <span className="observation">optional</span>
+              </label>
+              <input
+                type="tel"
+                placeholder="Enter your phone number"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+              />
+            </div>
+
+            <div className="form-row">
+              <label>
+                Address <span className="observation">optional</span>
+              </label>
+              <input
+                type="text"
+                placeholder="Enter your address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
           </form>
         </div>
       )}

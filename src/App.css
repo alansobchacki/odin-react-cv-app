@@ -7,18 +7,89 @@
 #main-container {
   display: grid;
   grid-template: 1fr / 0.2fr 1fr;
+  height: 100vh;
 }
 
-#personal-info {
+#info-container {
   grid-column: 1 / 2;
 
   display: flex;
   flex-direction: column;
 }
 
+.regular-button,
+.small-button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  min-width: 250px;
+  text-align: left;
+}
+
+.small-button {
+  margin-top: 3%;
+  border-radius: 50%;
+  font-size: 1em;
+  min-width: 50px;
+  min-height: 50px;
+}
+
+.info {
+  grid-row: 1 / 2;
+  grid-column: 1 / 2;
+
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-bottom: 10px;
+}
+
+.observation {
+  font-style: italic;
+  font-size: 0.7rem;
+  margin-left: 3%;
+  color: rgb(173, 173, 173);
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  align-content: left;
+  text-align: left;
+  gap: 5px;
+  margin-top: 2px;
+}
+
+/* resume stuff */
 #resume {
+  grid-row: 1 / 2;
   grid-column: 2 / 3;
 
   display: flex;
   flex-direction: column;
+  background-color: white;
+  color: black;
+  height: 1200px;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+#resume h1 {
+  font-size: 3rem;
+  margin-bottom: -1%;
+}
+
+#resume h2 {
+  font-size: 1.6rem;
+}
+
+.resume-field {
+  text-align: left;
+  border-bottom: 1px solid black;
 }
