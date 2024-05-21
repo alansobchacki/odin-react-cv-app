@@ -17,7 +17,20 @@
   flex-direction: column;
 }
 
+.description-input-field {
+  font-family: inherit;
+  font-size: 0.8rem;
+  height: 100px;
+}
+
+.regular-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .regular-button,
+.medium-button,
 .small-button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -32,12 +45,36 @@
   text-align: left;
 }
 
+.medium-button {
+  margin-top: 3%;
+  border-radius: 20px;
+  min-width: 100px;
+}
+
 .small-button {
   margin-top: 3%;
   border-radius: 50%;
   font-size: 1em;
   min-width: 50px;
   min-height: 50px;
+  width: 20px;
+  height: 20px;
+}
+
+.arrow {
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transition: transform 0.3s ease;
+}
+
+.arrow.down {
+  transform: rotate(45deg);
+}
+
+.arrow.up {
+  transform: rotate(-135deg);
 }
 
 .info {
@@ -66,6 +103,14 @@
   margin-top: 2px;
 }
 
+.information-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 5px;
+  margin-top: 2px;
+}
+
 /* resume stuff */
 #resume {
   grid-row: 1 / 2;
@@ -78,10 +123,11 @@
   height: 1200px;
   margin-left: 3%;
   margin-right: 3%;
+  line-height: 1.6;
 }
 
 #resume h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: -1%;
 }
 
@@ -89,7 +135,10 @@
   font-size: 1.6rem;
 }
 
-.resume-field {
-  text-align: left;
+#resume p {
+  font-size: 1.1rem;
+}
+
+.resume-line {
   border-bottom: 1px solid black;
 }

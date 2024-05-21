@@ -17,8 +17,10 @@ function Resume({
         </p>
       </div>
 
+      <div className="resume-line"></div>
+
       {/* Experience Section */}
-      <div className="resume-field">
+      <div>
         <h2>
           <strong>Experience:</strong>
         </h2>
@@ -37,8 +39,10 @@ function Resume({
         ))}
       </div>
 
+      <div className="resume-line"></div>
+
       {/* Education Section */}
-      <div className="resume-field">
+      <div>
         <h2>
           <strong>Education:</strong>
         </h2>

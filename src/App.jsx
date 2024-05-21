@@ -6,16 +6,45 @@ import "./App.css";
 
 function App() {
   // General information
-  const [fullName, setFullName] = useState("Your Name");
-  const [email, setEmail] = useState("you@email.com");
-  const [portfolio, setPortfolio] = useState("github.com/you");
-  const [phoneNumber, setPhoneNumber] = useState("(123) 456-7890");
-  const [address, setAddress] = useState("Some City, Some State");
+  const [fullName, setFullName] = useState("Charles Kelly");
+  const [email, setEmail] = useState("charliek@paddyspub.com");
+  const [portfolio, setPortfolio] = useState("github.com/dayman");
+  const [phoneNumber, setPhoneNumber] = useState("(215) 555-0199");
+  const [address, setAddress] = useState("1234 Trash Alley");
 
   // Work Experience
-  const [workExperiences, setWorkExperiences] = useState([]);
+  const [workExperiences, setWorkExperiences] = useState([
+    {
+      institutionName: "Some Random Mall",
+      institutionLocation: "Somewhere in Philly",
+      startDuration: "2023-04-02",
+      endDuration: "Present",
+      title: "Mail Room Officer",
+      description:
+        "In charge of organizing mail and sometimes tracking missing people.",
+    },
+    {
+      institutionName: "Paddy's Pub",
+      institutionLocation: "Somewhere in Philly",
+      startDuration: "2005-04-02",
+      endDuration: "2023-03-01",
+      title: "Co-Owner / Janitor",
+      description:
+        "Executed well over 500+ rodents with a single, custom-made, spiked baseball bat.",
+    },
+  ]);
   // Education
-  const [educationExperiences, setEducationExperiences] = useState([]);
+  const [educationExperiences, setEducationExperiences] = useState([
+    {
+      institutionName: " Philly University",
+      institutionLocation: "Somewhere in Philly",
+      startDuration: "2019-04-02",
+      endDuration: "2023-04-02",
+      title: "Bachelors in Bird Law",
+      description:
+        "Had a GPA of over 2.2 by feeding the local pidgeons with second-grade corn.",
+    },
+  ]);
 
   const addExperience = (type, newExperience) => {
     if (type === "Experience") {

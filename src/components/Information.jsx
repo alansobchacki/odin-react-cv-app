@@ -47,12 +47,13 @@ function Information({
     <div>
       <button className="regular-button" onClick={toggleFieldVisibility}>
         {typeOfInformation}
+        <span className={`arrow ${toggleField ? "up" : "down"}`}></span>
       </button>
 
       {toggleField && (
         <>
-          <button className="small-button" onClick={toggleNewInformation}>
-            +
+          <button className="medium-button" onClick={toggleNewInformation}>
+            Add New {typeOfInformation}
           </button>
 
           {newInformation && (
@@ -138,10 +139,10 @@ function Information({
                     Description{" "}
                     <span className="observation">optional, recommended</span>
                   </label>
-                  <input
+                  <textarea
+                    className="description-input-field"
                     type="text"
                     placeholder="Enter something unique you did"
-                    maxLength={300}
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                   />
@@ -149,19 +150,17 @@ function Information({
               </form>
 
               <div id="edit-buttons">
-                <button className="small-button" onClick={handleAddExperience}>
-                  +
+                <button className="medium-button" onClick={handleAddExperience}>
+                  Save {typeOfInformation}
                 </button>
               </div>
             </div>
           )}
 
           {experiences.map((experience, index) => (
-            <div key={index}>
+            <div className="information-row" key={index}>
               <p>
-                {experience.institutionName}, {experience.title},{" "}
-                {experience.startDuration}, {experience.endDuration},{" "}
-                {experience.institutionLocation}, {experience.description}
+                {index + 1} - {experience.institutionName}
               </p>
               <button
                 className="small-button"

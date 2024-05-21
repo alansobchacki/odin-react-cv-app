@@ -22,6 +22,7 @@ function PersonalInformation({
     <div className="">
       <button className="regular-button" onClick={toggleVisibility}>
         General Information
+        <span className={`arrow ${isVisible ? "up" : "down"}`}></span>
       </button>
 
       {isVisible && (
