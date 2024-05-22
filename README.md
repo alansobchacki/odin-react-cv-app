@@ -33,7 +33,7 @@ At first, I didn't see much reason to use React. I thought it was overcomplicati
 
 But yeah, with a project like this, handling DOM manipulation by myself would be a problem. That's when I learned React's usefulness.
 
-I finished the project but looking back, I could have handled things better. Not adding so much functionality into a single component, separating my.css files into a single 'assets' folder, handling props/data better so that the resume gets updated as the user types, etc.
+I finished the project but looking back, I could have handled things better. Not adding so much functionality into a single component, organizing my.css files into an 'assets' folder, handling props/data better so that the resume gets updated as the user types, etc.
 
 Still, I'm proud of my messy code. Not too bad for my first React app.
 
