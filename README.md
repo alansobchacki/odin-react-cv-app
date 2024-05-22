@@ -33,6 +33,8 @@ Still, I'm proud of my messy code. I got it done, and hey, it's my first React p
 Notes
 -----
 
+This project was built with [Vite](https://vitejs.dev/) + React, and deployed with [Vercel](https://vercel.com/).
+
 Allowing users to print their resumes wasn't a requirement, but it felt dumb not to allow people to save/print their resumes. It will throw you an extra blank page for whatever reason, but it works. 
 
 Troubleshooting this took more time than the project itself, and I still couldn't fix it. I'll return at a later time and fix this (trust me bro).
