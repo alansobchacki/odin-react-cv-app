@@ -55,11 +55,23 @@ function App() {
     },
   ]);
 
-  const addExperience = (type, newExperience) => {
+  const addExperience = (type, newExperience, index = null) => {
     if (type === "Experience") {
-      setWorkExperiences([...workExperiences, newExperience]);
+      if (index !== null) {
+        setWorkExperiences((prev) =>
+          prev.map((exp, i) => (i === index ? newExperience : exp))
+        );
+      } else {
+        setWorkExperiences([...workExperiences, newExperience]);
+      }
     } else if (type === "Education") {
-      setEducationExperiences([...educationExperiences, newExperience]);
+      if (index !== null) {
+        setEducationExperiences((prev) =>
+          prev.map((exp, i) => (i === index ? newExperience : exp))
+        );
+      } else {
+        setEducationExperiences([...educationExperiences, newExperience]);
+      }
     }
   };
 

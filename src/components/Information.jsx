@@ -14,14 +14,27 @@ function Information({
   const [descriptions, setDescriptions] = useState(["", "", ""]);
   const [toggleField, setToggleField] = useState(false);
   const [newInformation, setNewInformation] = useState(false);
+  const [editingIndex, setEditingIndex] = useState(null);
 
   const toggleFieldVisibility = () => {
     setToggleField(!toggleField);
     setNewInformation(false);
+    setEditingIndex(null);
   };
 
   const toggleNewInformation = () => {
     setNewInformation(!newInformation);
+    setEditingIndex(null);
+    resetForm();
+  };
+
+  const resetForm = () => {
+    setInstitutionName("");
+    setInstitutionLocation("");
+    setStartDuration("");
+    setEndDuration("");
+    setTitle("");
+    setDescriptions(["", "", ""]);
   };
 
   const handleAddExperience = () => {
@@ -33,20 +46,30 @@ function Information({
       title,
       descriptions,
     };
-    addExperience(typeOfInformation, newExperience);
-    setInstitutionName("");
-    setInstitutionLocation("");
-    setStartDuration("");
-    setEndDuration("");
-    setTitle("");
-    setDescriptions(["", "", ""]);
+
+    addExperience(typeOfInformation, newExperience, editingIndex);
+
+    resetForm();
     setNewInformation(false);
+    setEditingIndex(null);
   };
 
   const handleChange = (index, value) => {
     const newDescriptions = [...descriptions];
     newDescriptions[index] = value;
     setDescriptions(newDescriptions);
+  };
+
+  const handleEditExperience = (index) => {
+    const experience = experiences[index];
+    setInstitutionName(experience.institutionName);
+    setInstitutionLocation(experience.institutionLocation);
+    setStartDuration(experience.startDuration);
+    setEndDuration(experience.endDuration);
+    setTitle(experience.title);
+    setDescriptions(experience.descriptions);
+    setNewInformation(true);
+    setEditingIndex(index);
   };
 
   return (
@@ -58,9 +81,11 @@ function Information({
 
       {toggleField && (
         <>
-          <button className="medium-button" onClick={toggleNewInformation}>
-            Add New {typeOfInformation}
-          </button>
+          {editingIndex === null && (
+            <button className="medium-button" onClick={toggleNewInformation}>
+              Add New {typeOfInformation}
+            </button>
+          )}
 
           {newInformation && (
             <div className="info">
@@ -170,7 +195,7 @@ function Information({
 
                 <div className="form-row">
                   <label>
-                    First Bullet Point
+                    Third Bullet Point
                     <span className="observation">recommended</span>
                   </label>
                   <textarea
@@ -185,7 +210,9 @@ function Information({
 
               <div id="edit-buttons">
                 <button className="medium-button" onClick={handleAddExperience}>
-                  Save {typeOfInformation}
+                  {editingIndex !== null
+                    ? `Update ${typeOfInformation}`
+                    : `Save ${typeOfInformation}`}
                 </button>
               </div>
             </div>
@@ -193,8 +220,11 @@ function Information({
 
           {experiences.map((experience, index) => (
             <div className="information-row" key={index}>
-              <p>
-                {index + 1} - {experience.institutionName}
+              <p
+                className="information-title"
+                onClick={() => handleEditExperience(index)}
+              >
+                {experience.institutionName}
               </p>
               <button
                 className="small-button"
