@@ -2,6 +2,7 @@ import { useState } from "react";
 import Resume from "./components/Resume.jsx";
 import PersonalInformation from "./components/PersonalInfo.jsx";
 import Information from "./components/Information.jsx";
+import PrintButton from "./components/PrintButton.jsx";
 import "./App.css";
 
 function App() {
@@ -19,9 +20,12 @@ function App() {
       institutionLocation: "Somewhere in Philly",
       startDuration: "2023-04-02",
       endDuration: "Present",
-      title: "Mail Room Officer",
-      description:
-        "In charge of organizing mail and sometimes tracking missing people.",
+      title: "Mail Room Worker",
+      descriptions: [
+        "In charge of organizing mail for hundreds of mall workers.",
+        "Improved efficiency on mail-sorting process by building wall maps.",
+        "Single-handedly discovered the identity of the illusive Pepe Silvia.",
+      ],
     },
     {
       institutionName: "Paddy's Pub",
@@ -29,10 +33,14 @@ function App() {
       startDuration: "2005-04-02",
       endDuration: "2023-03-01",
       title: "Co-Owner / Janitor",
-      description:
-        "Executed well over 500+ rodents with a single, custom-made, spiked baseball bat.",
+      descriptions: [
+        "Executed well over 500+ rodents through the usage of a custom-made spiked baseball bat.",
+        "Implemented a creative marketing strategy involving hand-drawn flyers and street performances to promote Paddy's Pub's signature drinks and specials.",
+        "Initiated a ''Charlie Work'' program, improving the cleaning process of the bar.",
+      ],
     },
   ]);
+
   // Education
   const [educationExperiences, setEducationExperiences] = useState([
     {
@@ -41,8 +49,9 @@ function App() {
       startDuration: "2019-04-02",
       endDuration: "2023-04-02",
       title: "Bachelors in Bird Law",
-      description:
-        "Had a GPA of over 2.2 by feeding the local pidgeons with second-grade corn.",
+      descriptions: [
+        "Participated in a unique externship program with a renowned ornithologist, gaining hands-on experience in bird law.",
+      ],
     },
   ]);
 
@@ -67,48 +76,42 @@ function App() {
   return (
     <div id="main-container">
       <div id="info-container">
-        <div className="info">
-          <PersonalInformation
-            fullName={fullName}
-            setFullName={setFullName}
-            email={email}
-            setEmail={setEmail}
-            portfolio={portfolio}
-            setPortfolio={setPortfolio}
-            phoneNumber={phoneNumber}
-            setPhoneNumber={setPhoneNumber}
-            address={address}
-            setAddress={setAddress}
-          />
-        </div>
-        <div className="info">
-          <Information
-            typeOfInformation="Experience"
-            addExperience={addExperience}
-            experiences={workExperiences}
-            removeExperience={removeExperience}
-          />
-        </div>
-        <div className="info">
-          <Information
-            typeOfInformation="Education"
-            addExperience={addExperience}
-            experiences={educationExperiences}
-            removeExperience={removeExperience}
-          />
-        </div>
-      </div>
-      <div id="resume">
-        <Resume
+        <PersonalInformation
           fullName={fullName}
+          setFullName={setFullName}
           email={email}
+          setEmail={setEmail}
           portfolio={portfolio}
+          setPortfolio={setPortfolio}
           phoneNumber={phoneNumber}
+          setPhoneNumber={setPhoneNumber}
           address={address}
-          workExperiences={workExperiences}
-          educationExperiences={educationExperiences}
+          setAddress={setAddress}
         />
+        <Information
+          typeOfInformation="Experience"
+          addExperience={addExperience}
+          experiences={workExperiences}
+          removeExperience={removeExperience}
+        />
+        <Information
+          typeOfInformation="Education"
+          addExperience={addExperience}
+          experiences={educationExperiences}
+          removeExperience={removeExperience}
+        />
+        <PrintButton />
       </div>
+
+      <Resume
+        fullName={fullName}
+        email={email}
+        portfolio={portfolio}
+        phoneNumber={phoneNumber}
+        address={address}
+        workExperiences={workExperiences}
+        educationExperiences={educationExperiences}
+      />
     </div>
   );
 }

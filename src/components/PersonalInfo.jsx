@@ -26,7 +26,7 @@ function PersonalInformation({
       </button>
 
       {isVisible && (
-        <div>
+        <div className="info">
           <form>
             <div className="form-row">
               <label>
@@ -55,8 +55,7 @@ function PersonalInformation({
 
             <div className="form-row">
               <label>
-                Portfolio{" "}
-                <span className="observation">optional, recommended</span>
+                Portfolio <span className="observation">required</span>
               </label>
               <input
                 type="text"
@@ -68,7 +67,7 @@ function PersonalInformation({
 
             <div className="form-row">
               <label>
-                Phone Number <span className="observation">optional</span>
+                Phone Number <span className="observation">recommended</span>
               </label>
               <input
                 type="tel"
@@ -80,7 +79,7 @@ function PersonalInformation({
 
             <div className="form-row">
               <label>
-                Address <span className="observation">optional</span>
+                Address <span className="observation">recommended</span>
               </label>
               <input
                 type="text"

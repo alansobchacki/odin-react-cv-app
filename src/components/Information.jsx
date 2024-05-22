@@ -11,7 +11,7 @@ function Information({
   const [startDuration, setStartDuration] = useState("");
   const [endDuration, setEndDuration] = useState("");
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+  const [descriptions, setDescriptions] = useState(["", "", ""]);
   const [toggleField, setToggleField] = useState(false);
   const [newInformation, setNewInformation] = useState(false);
 
@@ -31,7 +31,7 @@ function Information({
       startDuration,
       endDuration,
       title,
-      description,
+      descriptions,
     };
     addExperience(typeOfInformation, newExperience);
     setInstitutionName("");
@@ -39,8 +39,14 @@ function Information({
     setStartDuration("");
     setEndDuration("");
     setTitle("");
-    setDescription("");
+    setDescriptions(["", "", ""]);
     setNewInformation(false);
+  };
+
+  const handleChange = (index, value) => {
+    const newDescriptions = [...descriptions];
+    newDescriptions[index] = value;
+    setDescriptions(newDescriptions);
   };
 
   return (
@@ -57,7 +63,7 @@ function Information({
           </button>
 
           {newInformation && (
-            <div>
+            <div className="info">
               <form>
                 <div className="form-row">
                   <label>
@@ -123,7 +129,7 @@ function Information({
                 <div className="form-row">
                   <label>
                     Institution Location{" "}
-                    <span className="observation">optional</span>
+                    <span className="observation">recommended</span>
                   </label>
                   <input
                     type="text"
@@ -136,15 +142,43 @@ function Information({
 
                 <div className="form-row">
                   <label>
-                    Description{" "}
-                    <span className="observation">optional, recommended</span>
+                    First Bullet Point
+                    <span className="observation">recommended</span>
                   </label>
                   <textarea
                     className="description-input-field"
                     type="text"
                     placeholder="Enter something unique you did"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
+                    value={descriptions[0]}
+                    onChange={(e) => handleChange(0, e.target.value)}
+                  />
+                </div>
+
+                <div className="form-row">
+                  <label>
+                    Second Bullet Point
+                    <span className="observation">recommended</span>
+                  </label>
+                  <textarea
+                    className="description-input-field"
+                    type="text"
+                    placeholder="Enter something unique you did"
+                    value={descriptions[1]}
+                    onChange={(e) => handleChange(1, e.target.value)}
+                  />
+                </div>
+
+                <div className="form-row">
+                  <label>
+                    First Bullet Point
+                    <span className="observation">recommended</span>
+                  </label>
+                  <textarea
+                    className="description-input-field"
+                    type="text"
+                    placeholder="Enter something unique you did"
+                    value={descriptions[2]}
+                    onChange={(e) => handleChange(2, e.target.value)}
                   />
                 </div>
               </form>

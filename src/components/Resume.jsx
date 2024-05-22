@@ -12,12 +12,13 @@ function Resume({
       <div id="personal-section">
         <h1>{fullName}</h1>
         <p>
-          {email}&nbsp;&nbsp;{portfolio}&nbsp;&nbsp;{phoneNumber}&nbsp;&nbsp;
+          •&nbsp;{email} •&nbsp;{portfolio} •&nbsp;{phoneNumber} •&nbsp;
           {address}
         </p>
       </div>
 
       <div className="resume-line"></div>
+      <br></br>
 
       {/* Experience Section */}
       <div>
@@ -26,15 +27,39 @@ function Resume({
         </h2>
         {workExperiences.map((experience, index) => (
           <div key={index}>
-            <p>
-              {experience.institutionName} - {experience.title}
-              <br />
-              {experience.startDuration} - {experience.endDuration}
-              <br />
-              {experience.institutionLocation}
-              <br />
-              {experience.description}
-            </p>
+            <div className=" resume-info-container">
+              <p>
+                <strong>{experience.institutionName}</strong>
+              </p>
+
+              <p>
+                <strong>
+                  {experience.startDuration} — {experience.endDuration}
+                </strong>
+              </p>
+            </div>
+
+            <div className=" resume-info-container">
+              <p>
+                <i>{experience.title}</i>
+              </p>
+
+              <p>
+                <i>{experience.institutionLocation}</i>
+              </p>
+            </div>
+
+            <div className="resume-info-container">
+              <ul>
+                {experience.descriptions &&
+                  experience.descriptions
+                    .filter((description) => description.trim() !== "")
+                    .map((description, index) => (
+                      <li key={index}>{description}</li>
+                    ))}
+              </ul>
+            </div>
+            <br></br>
           </div>
         ))}
       </div>
@@ -48,15 +73,38 @@ function Resume({
         </h2>
         {educationExperiences.map((experience, index) => (
           <div key={index}>
-            <p>
-              {experience.institutionName} - {experience.title}
-              <br />
-              {experience.startDuration} - {experience.endDuration}
-              <br />
-              {experience.institutionLocation}
-              <br />
-              {experience.description}
-            </p>
+            <div className=" resume-info-container">
+              <p>
+                <strong>{experience.institutionName}</strong>
+              </p>
+
+              <p>
+                <strong>
+                  {experience.startDuration} — {experience.endDuration}
+                </strong>
+              </p>
+            </div>
+
+            <div className=" resume-info-container">
+              <p>
+                <i>{experience.title}</i>
+              </p>
+
+              <p>
+                <i>{experience.institutionLocation}</i>
+              </p>
+            </div>
+
+            <div className="resume-info-container">
+              <ul>
+                {experience.descriptions &&
+                  experience.descriptions
+                    .filter((description) => description.trim() !== "")
+                    .map((description, index) => (
+                      <li key={index}>{description}</li>
+                    ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>

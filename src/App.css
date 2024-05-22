@@ -1,3 +1,4 @@
+/* global settings */
 #root {
   margin: 0 auto;
   padding: 2rem;
@@ -10,17 +11,19 @@
   height: 100vh;
 }
 
+/* sidebar with all buttons and forms */
 #info-container {
   grid-column: 1 / 2;
 
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .description-input-field {
   font-family: inherit;
   font-size: 0.8rem;
-  height: 100px;
+  height: 50px;
 }
 
 .regular-button {
@@ -31,7 +34,8 @@
 
 .regular-button,
 .medium-button,
-.small-button {
+.small-button,
+#save-resume-button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -59,6 +63,15 @@
   min-height: 50px;
   width: 20px;
   height: 20px;
+}
+
+#save-resume-button {
+  background-color: #3b3b3b;
+  text-align: center;
+}
+
+#save-resume-button:hover {
+  border-color: #646cff;
 }
 
 .arrow {
@@ -120,25 +133,77 @@
   flex-direction: column;
   background-color: white;
   color: black;
-  height: 1200px;
+  min-height: 1100px;
   margin-left: 3%;
   margin-right: 3%;
+  padding-left: 3%;
+  padding-right: 3%;
+  margin-bottom: 3%;
   line-height: 1.6;
 }
 
 #resume h1 {
-  font-size: 3.5rem;
+  font-size: 3.2rem;
   margin-bottom: -1%;
 }
 
 #resume h2 {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
+  text-align: left;
 }
 
-#resume p {
-  font-size: 1.1rem;
+#resume p,
+li {
+  font-size: 1rem;
+}
+
+#resume li {
+  text-align: left;
+}
+
+.resume-info-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -3%;
+  gap: -5px;
+}
+
+#resume .duration {
+  text-align: right;
+  font-size: 0.8rem;
+}
+
+.title {
+  text-align: left;
 }
 
 .resume-line {
   border-bottom: 1px solid black;
+}
+
+/* settings to allow users to save/print their resumes */
+@media print {
+  html,
+  body {
+    height: auto;
+  }
+  #resume {
+    position: absolute;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1cm;
+    box-sizing: border-box;
+    line-height: 1.2;
+    font-size: 12pt;
+    page-break-inside: avoid;
+  }
+  #resume {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    background: white;
+  }
 }
