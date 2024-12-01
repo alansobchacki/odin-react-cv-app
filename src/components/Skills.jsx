@@ -21,10 +21,9 @@ function SkillInformation({
         <div className="info">
           <form>
             <div className="form-row">
-              <label>
-                Skills <span className="observation">recommended</span>
-              </label>
-              <input
+              <label>Skills <span className="observation">recommended</span></label>
+              <textarea
+                className="description-input-field"
                 type="text"
                 placeholder="Enter your skills"
                 value={skillsExperiences}

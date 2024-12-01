@@ -12,15 +12,13 @@ function Resume({
     <div id="resume">
       <div id="personal-section">
         <h1>{fullName}</h1>
-        <p>•&nbsp;{email} •&nbsp;{portfolio} •&nbsp;{phoneNumber} •&nbsp;{address}</p>
+        <h2>•&nbsp;{email} •&nbsp;{portfolio} •&nbsp;{phoneNumber} •&nbsp;{address}</h2>
       </div>
-
       <div className="resume-line"></div>
-      <br></br>
 
       {/* Experience Section */}
-      <div>
-        <h2><b>Experience:</b></h2>
+      <div className="information-field">
+        <h3><b>Experience:</b></h3>
         {workExperiences.map((experience, index) => (
           <div key={index}>
             <div className=" resume-info-container">
@@ -44,16 +42,14 @@ function Resume({
                 }
               </ul>
             </div>
-            <br></br>
           </div>
         ))}
       </div>
-
       <div className="resume-line"></div>
 
       {/* Education Section */}
-      <div>
-        <h2><b>Education:</b></h2>
+      <div className="information-field">
+        <h3><b>Education:</b></h3>
         {educationExperiences.map((experience, index) => (
           <div key={index}>
             <div className=" resume-info-container">
@@ -79,13 +75,15 @@ function Resume({
           </div>
         ))}
       </div>
-
       <div className="resume-line"></div>
 
       {/* Skills Section */}
-      <div>
-        <h2><b>Skills:</b></h2>
-        <p>{skills}</p>
+      <div className="information-field">
+        <h3><b>Skills:</b></h3>
+
+        <div className=" resume-info-container">
+          <p>{skills}</p>
+        </div>
       </div>
     </div>
   );

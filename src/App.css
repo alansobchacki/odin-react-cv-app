@@ -10,22 +10,29 @@
 }
 
 /* sidebar with all buttons and forms */
+input, textarea {
+  padding: 5px;
+  border: none;
+}
+
 #info-container {
   display: flex;
   flex-direction: column;
+  width: 25%;
   gap: 10px;
 }
 
 .description-input-field {
   font-family: inherit;
   font-size: 0.8rem;
-  height: 50px;
+  height: 100px;
 }
 
 .regular-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .regular-button,
@@ -41,7 +48,6 @@
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-  min-width: 250px;
   text-align: left;
 }
 
@@ -135,32 +141,42 @@
   flex-direction: column;
   background-color: white;
   color: black;
-  min-height: 1100px;
-  margin-left: 3%;
-  margin-right: 3%;
-  padding-left: 3%;
-  padding-right: 3%;
-  margin-bottom: 3%;
+  width: 8.5in; /* Standard US Letter size width */
+  height: 11in; /* Standard US Letter size height */
+  padding: 35px;
+  margin-left: auto;
+  margin-right: auto;
   line-height: 1.6;
 }
 
 #resume h1 {
-  font-size: 3.2rem;
-  margin-bottom: -1%;
+  font-size: 3rem;
+  margin: 0;
 }
 
 #resume h2 {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+#resume h3 {
   font-size: 1.5rem;
   text-align: left;
 }
 
 #resume p,
 li {
+  text-align: left;
   font-size: 1rem;
 }
 
 #resume li {
   text-align: left;
+}
+
+.information-field {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .resume-info-container {
@@ -184,28 +200,26 @@ li {
 }
 
 /* settings to allow users to save/print their resumes */
+@page {
+  margin: 25px;
+}
+
 @media print {
-  html,
   body {
-    height: auto;
-  }
-  #resume {
-    position: absolute;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 1cm;
-    box-sizing: border-box;
-    line-height: 1.2;
-    font-size: 12pt;
-    page-break-inside: avoid;
-  }
-  #resume {
-    position: absolute;
-    left: 0;
-    top: 0;
     margin: 0;
     padding: 0;
+  }
+
+  #info-container {
+    display: none;
+  }
+
+  #resume {
+    width: 9.0in; /* Standard US Letter size width */
+    height: 9.5in; /* Standard US Letter size height */
+    line-height: 1.2;
+    font-size: 8pt;
+    page-break-inside: avoid;
     background: white;
   }
 }
