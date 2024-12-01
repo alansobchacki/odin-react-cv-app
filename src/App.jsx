@@ -3,10 +3,10 @@ import Resume from "./components/Resume.jsx";
 import PersonalInformation from "./components/PersonalInfo.jsx";
 import Information from "./components/Information.jsx";
 import PrintButton from "./components/PrintButton.jsx";
+import Skills from "./components/Skills.jsx";
 import "./App.css";
 
 function App() {
-  // General information
   const [fullName, setFullName] = useState("Charles Kelly");
   const [email, setEmail] = useState("charliek@paddyspub.com");
   const [portfolio, setPortfolio] = useState("github.com/dayman");
@@ -54,6 +54,9 @@ function App() {
       ],
     },
   ]);
+
+  // Skills
+  const [skillExperiences, setSkillExperiences] = useState('Proficient in smashing rats.');
 
   const addExperience = (type, newExperience, index = null) => {
     if (type === "Experience") {
@@ -112,6 +115,10 @@ function App() {
           experiences={educationExperiences}
           removeExperience={removeExperience}
         />
+        <Skills 
+          skillsExperiences={skillExperiences}
+          setSkillsExperiences={setSkillExperiences}
+        />
         <PrintButton />
       </div>
 
@@ -123,6 +130,7 @@ function App() {
         address={address}
         workExperiences={workExperiences}
         educationExperiences={educationExperiences}
+        skills={skillExperiences}
       />
     </div>
   );
